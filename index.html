@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D трассировочная карта трубопровода</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>3D трассировочная карта</h1>
+        <p id="statusText">Нажмите «Старт» для начала симуляции</p>
+      </div>
+      <div class="metrics" aria-label="Параметры симуляции">
+        <span id="pointMetric">0 / 0 точек</span>
+        <span id="distanceMetric">0.0 м</span>
+        <span id="picketMetric">ПК0+00</span>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="Управление симуляцией">
+      <button id="playBtn" class="primary" type="button">Старт</button>
+      <button id="pauseBtn" type="button">Пауза</button>
+      <button id="resetBtn" type="button">Сброс</button>
+      <button id="finishBtn" type="button">Построить полностью</button>
+      <button id="rotateBtn" type="button">Автовращение</button>
+
+      <label class="speed-control" for="speedSlider">
+        <span>Точек за шаг</span>
+        <input id="speedSlider" type="range" min="1" max="80" step="1" value="10">
+        <output id="speedValue" for="speedSlider">10</output>
+      </label>
+    </section>
+
+    <div class="progress-track" aria-label="Прогресс построения">
+      <div id="progressFill"></div>
+    </div>
+
+    <section class="map-stage" aria-label="3D карта">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
